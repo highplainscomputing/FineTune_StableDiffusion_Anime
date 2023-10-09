@@ -1,7 +1,7 @@
 
 # Anime Model:
 Our Model is designed to create Naruto Animation characters from text-to-images and image-to-image using Low-Rank Adaption(LoRA) Stable Diffusion.
-You can download model from civitai [here](### You can find deployed model here)
+You can download model from civitai [here](https://github.com/highplainscomputing/FineTune_StableDiffusion_Anime/blob/main/README.md#you-can-find-deployed-model-here)
  
 
 ## Pre-trained Model
