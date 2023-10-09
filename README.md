@@ -1,44 +1,56 @@
-# Dataset_Maker_Anime
 
-- First run the Dataset Maker Anime file
-- Connect it to your Google Drive for Dataset purpose 
-- Afterwards upload your file into your Loras/[project_name]/dataset folder.
-- All process is automated then you can provide your global activation tags and other functionalities are also provided.
- 
-# Pre trained Model
+# Anime Model:
+Our Model is designed to create Naruto Animation characters from text-to-images and image-to-image using Low-Rank Adaption(LoRA) Stable Diffusion.
+You can download model from civitai [here](### You can find deployed model here)
 
-- We use stable Diffusion(pre-trained) Model which is trained on 5 billions text-to-image pairs
-- Stable Diffusion version 1.5
-- Use Low Rank Adaption(LoRA) which has it's own advantages.
-- With LoRA you can trained it with low training data along with small .safetensors file, unlike GB's of file.
 
-# Fine Tune Dataset
-- Dataset is from Japenese Popular Anime Naruto Shippuden consists of almost 1600 images including fanart
-- Use your own dataset but it should be in proper format according to notebook designed
+## Pre-trained Model
 
-check flip aug if your dataset has less than 20 images.
+In our project, we employ a **pre-trained model** known as "Stable Diffusion." This model has undergone training on a massive dataset consisting of 5 billion text-to-image pairs, making it a powerful foundation for various image generation tasks.
 
-for more details check out [Stable Diffusion Guide](https://civitai.com/models/22530)
+- Version: Stable Diffusion 1.5
+- Additional Features: We use "Low Rank Adaption (LoRA)" for enhanced performance. LoRA allows the model to be trained effectively with minimal training data and a small .safetensors file, unlike models that require gigabytes of data.
 
-# Trainer Extras
-There are many Hyperparameters like unet learning rate, text encoder learning rate, etc.
-Look 3 of them only
-- Number of repeats : How many times do you want to repeat your images.
-- Number of epochs
-- Train Batch Size
-## Learning 
-- The unet learning rate dictates how fast your Lora will absorb information. Like with steps, if it's too small the Lora won't do anything, and if it's too large the Lora will deepfry every image you generate. There's a flexible range of working values, specially since you can change the intensity of the lora in prompts. Assuming you set dim between 8 and 32 (see below), I recommend 5e-4 unet for almost all situations. If you want a slow simmer, 1e-4 or 2e-4 will be better. Note that these are in scientific notation: 1e-4 = 0.0001
+## Fine Tune Dataset
 
-- The text encoder learning rate is less important, specially for styles. It helps learn tags better, but it'll still learn them without it. It is generally accepted that it should be either half or a fifth of the unet, good values include 1e-4 or 5e-5. Use google as a calculator if you find these small values confusing.
+Our dataset is derived from the popular Japanese anime, "Naruto Shippuden," and comprises approximately 1600 images, including fan art. You have the flexibility to use your dataset, but it must adhere to the proper format as outlined in the notebook.
 
-- The scheduler guides the learning rate over time. This is not critical, but still helps. I always use cosine with 3 restarts, which I personally feel like it keeps the Lora "fresh". Feel free to experiment with cosine, constant, and constant with warmup. Can't go wrong with those. There's also the warmup ratio which should help the training start efficiently, and the default of 5% works well.
+- Note: If your dataset contains fewer than 20 images, consider enabling the "flip augmentation" feature.
 
-# Inference 
-- run the first cell, it will take a while. When you see "Model loaded in 32.4s..." interrupt it.
-- Connect your drive
-- give your LoRA models path.
-- Run the last cell and open Gradio link
- 
- Check out my model that I trained on Naruto Anime Data [![Demo](https://img.shields.io/badge/Demo-View%20Demo-blue)](https://civitai.com/models/146475/naruto-or-lora)
+For more details, please refer to the [Stable Diffusion Guide](https://civitai.com/models/22530).
 
- 
+## Trainer Extras
+
+Our project offers various **trainer extras**, including hyperparameters that influence the training process:
+
+- Number of repeats: Determine how many times you want to repeat your images.
+- Number of epochs: Control the number of training epochs.
+- Train Batch Size: Adjust the batch size for training.
+
+### Learning Rates
+
+- **UNet Learning Rate**: This parameter governs how fast your LoRA model absorbs information. Setting it too small may result in slow learning, while setting it too large may lead to overfitting. We recommend using a learning rate in the range of 1e-4 to 2e-4, with 5e-4 as a default value, for most situations.
+
+- **Text Encoder Learning Rate**: While less critical, the text encoder learning rate aids in learning tags better. A good range for this parameter is between 1e-4 and 5e-5, typically being half or a fifth of the UNet learning rate.
+
+- **Scheduler**: The scheduler guides the learning rate over time. We suggest using the cosine scheduler with 3 restarts for optimal performance. You can experiment with other scheduler options, such as constant or constant with warmup, to fine-tune your training process. A warmup ratio of 5% is a recommended default.
+
+## Inference
+
+To obtain inference from our project, follow these steps:
+
+1. Run the first cell; it will take some time. When you see "Model loaded in 32.4s...", interrupt it.
+2. Connect your Google Drive.
+3. Provide the path to your LoRA model.
+4. Run the last cell and open the Gradio link to interact with the model.
+
+Check out a demo of the model trained on Naruto Anime Data [![Demo](https://img.shields.io/badge/Demo-View%20Demo-blue)](https://civitai.com/models/146475/naruto-or-lora).
+
+Feel free to explore and experiment with our project. If you have any questions or feedback, please don't hesitate to reach out.
+
+
+### You can find deployed model here
+
+- [Naruto | LoRA](https://civitai.com/models/146475/naruto-or-lora)
+
+
